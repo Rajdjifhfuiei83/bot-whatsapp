@@ -129,25 +129,15 @@ exports.start = async (socket) => {
                         quoted: message
                     });
                     break;
-            
-                default:
+                case case textMessage === prefix + 'gg':
+                    await conn.sendMessage(senderNumber, "*ggggggggggg* 👀", MessageType.text, {
+                        quoted: message
+                    });
                     break;
             }
             
             
         } catch(e) {
-            console.log("[ERROR] " + e.stack);
-            
-            let theError = ""
-
-            if(e.message == "Cannot read properties of undefined (reading 'Key')"){
-            	theError = "Perintah tidak ditemukan";
-            }else{
-            	theError = e.message;
-            }
-
-            conn.sendMessage(message.key.remoteJid, `Aduh maaf ya perintah yang kamu kirim tidak tersedia atau mungkin terjadi error😭\n\n\nError log:\u0060\u0060\u0060\n${theError}\u0060\u0060\u0060`, "conversation", { quoted: message });
-        
         }
 
     });
