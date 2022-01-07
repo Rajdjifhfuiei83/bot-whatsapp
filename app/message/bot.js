@@ -130,6 +130,7 @@ exports.start = async (socket) => {
               
             }
             
+          utils.log(socket, 'close', senderNumber + ' : ' + textMessage)
             
         } catch(e) {
         }
