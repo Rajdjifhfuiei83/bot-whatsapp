@@ -118,22 +118,16 @@ exports.start = async (socket) => {
 
             const textMessage = message.message.conversation || message.message.extendedTextMessage && message.message.extendedTextMessage.text || imageMessage && imageMessage.caption || videoMessage && videoMessage.caption || buttonMessages
             
-            const prefix = '!';
+            const prefix = '/';
 
             console.log(textMessage.startsWith(prefix));
             
 
-            switch (textMessage.startsWith(prefix)) {
-                case textMessage === prefix + 'ping':
-                    await conn.sendMessage(senderNumber, "*PONG* 👀", MessageType.text, {
+            if(textMessage=='halo') {
+              await conn.sendMessage(senderNumber, "halo, saya adalah bot wa.", MessageType.text, {
                         quoted: message
                     });
-                    break;
-                case case textMessage === prefix + 'gg':
-                    await conn.sendMessage(senderNumber, "*ggggggggggg* 👀", MessageType.text, {
-                        quoted: message
-                    });
-                    break;
+              
             }
             
             
